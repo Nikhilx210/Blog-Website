@@ -19,11 +19,14 @@ app.use(express.static("public"));
 
 const posts=[]
 
-mongoose.connect("mongodb+srv://jaigaur:jaigaur123@cluster0.pbknaev.mongodb.net/dailyjournalDB", {
+mongoose.connect("mongodb://127.0.0.1:27017/Blog-database", {
   useNewUrlParser: true,
   useUnifiedTopology: true
-  }
-)
+  }).then(()=>{
+    console.log("Mongoose connected sucessfully");
+  }).catch(err =>{
+    console.log("there is the error in Mongoose", err);
+  })
 
 
 // mongoose.connection.dropDatabase()
